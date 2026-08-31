@@ -126,3 +126,50 @@ body {
 form button.submitted {
   background: #22c55e !important;
 }
+
+/* Gradient text shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.gradient-text {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Card hover glow */
+.glass:hover {
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.08);
+}
+
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid #6C63FF;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .animate-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Print styles */
+@media print {
+  #particles, #preloader, #back-to-top, nav, .floating-hire {
+    display: none !important;
+  }
+  body {
+    background: white;
+    color: black;
+  }
+}
