@@ -1,4 +1,32 @@
 // ============================================
+// PRELOADER
+// ============================================
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  setTimeout(() => {
+    preloader.style.opacity = '0';
+    setTimeout(() => preloader.style.display = 'none', 500);
+  }, 1200);
+});
+
+// ============================================
+// BACK TO TOP
+// ============================================
+const backToTop = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 500) {
+    backToTop.style.opacity = '1';
+    backToTop.style.pointerEvents = 'auto';
+  } else {
+    backToTop.style.opacity = '0';
+    backToTop.style.pointerEvents = 'none';
+  }
+});
+backToTop.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ============================================
 // PARTICLE BACKGROUND
 // ============================================
 const canvas = document.getElementById('particles');
