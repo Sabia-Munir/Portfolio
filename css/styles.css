@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: #0a0a0f;
+  color: #e2e8f0;
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6C63FF, #FF6584);
+  border-radius: 4px;
+}
+
+::selection {
+  background: rgba(108, 99, 255, 0.3);
+  color: #fff;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(108, 99, 255, 0.1);
+}
+
+.nav-blur {
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Scroll Animation */
+.animate-on-scroll {
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
+}
+
+/* Skill Bar Animation */
+.skill-bar-fill {
+  width: 0;
+  transition: width 1.2s ease-out;
+}
+
+.skill-bar-fill.animated {
+  /* width set by JS */
+}
+
+/* Timeline */
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #6C63FF;
+  border: 4px solid #0a0a0f;
+  z-index: 10;
+}
+
+/* Project card hover */
+.project-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(108, 99, 255, 0.1);
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Glow effect */
+@keyframes glow {
+  0% { box-shadow: 0 0 20px rgba(108, 99, 255, 0.3); }
+  100% { box-shadow: 0 0 40px rgba(108, 99, 255, 0.6); }
+}
+
+/* Form submit button */
+form button.submitted {
+  background: #22c55e !important;
+}
