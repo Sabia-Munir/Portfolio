@@ -46,6 +46,23 @@
 </head>
 <body class="bg-dark text-gray-200 font-sans overflow-x-hidden">
 
+  <!-- Preloader -->
+  <div id="preloader" class="fixed inset-0 bg-dark z-[100] flex items-center justify-center transition-opacity duration-500">
+    <div class="text-center">
+      <div class="relative w-20 h-20 mx-auto mb-6">
+        <div class="absolute inset-0 rounded-full border-2 border-primary/20"></div>
+        <div class="absolute inset-0 rounded-full border-2 border-transparent border-t-primary animate-spin"></div>
+        <div class="absolute inset-3 rounded-full border-2 border-transparent border-t-secondary animate-spin" style="animation-direction: reverse; animation-duration: 1.5s;"></div>
+      </div>
+      <p class="gradient-text text-2xl font-black tracking-wider">SM</p>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/25 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 hover:shadow-primary/40">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+  </button>
+
   <!-- Particle Canvas -->
   <canvas id="particles" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
