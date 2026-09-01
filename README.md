@@ -46,4 +46,4 @@ Just connect the repo — zero config needed.
 
 ## License
 
-MIT © Sabia Munir
+MIT © 2026 Sabia Munir
