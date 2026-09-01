@@ -28,19 +28,15 @@
       theme: {
         extend: {
           colors: {
-            primary: '#8B6F5C',
-            secondary: '#E8A0BF',
-            accent: '#D4A574',
             skin: '#F5E6D3',
-            'skin-light': '#FDF6EE',
+            'skin-light': '#FBF3EB',
             'skin-dark': '#E8D5C0',
-            brown: '#6B4C3B',
+            brown: '#5C3D2E',
             'brown-light': '#8B6F5C',
-            pink: '#E8A0BF',
-            'pink-dark': '#D48AA0',
-            dark: '#2C1E16',
-            'dark-light': '#3D2E24',
-            'dark-card': '#4A3728',
+            'brown-muted': '#A08070',
+            pink: '#E8879C',
+            'pink-dark': '#D46B82',
+            'pink-light': '#F2A5B5',
           },
           fontFamily: {
             sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -52,7 +48,7 @@
   </script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-skin-light text-dark font-sans overflow-x-hidden">
+<body class="bg-skin-light text-brown font-sans overflow-x-hidden">
 
   <!-- Scroll Progress Bar -->
   <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-brown to-pink z-[60] transition-all duration-150" style="width: 0%"></div>
@@ -70,14 +66,14 @@
   </div>
 
   <!-- Back to Top -->
-  <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/25 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 hover:shadow-primary/40" aria-label="Back to top">
+  <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-pink text-white shadow-lg shadow-pink/25 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 hover:shadow-pink/40" aria-label="Back to top">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
   </button>
 
   <!-- Floating Hire Badge -->
   <a href="#contact" class="fixed bottom-8 left-8 z-50 group" aria-label="Hire me">
     <div class="relative">
-      <div class="w-14 h-14 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center shadow-lg shadow-primary/30 animate-bounce cursor-pointer">
+      <div class="w-14 h-14 rounded-full bg-pink flex items-center justify-center shadow-lg shadow-pink/30 animate-bounce cursor-pointer">
         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
       </div>
       <span class="absolute -top-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-dark animate-pulse"></span>
@@ -92,7 +88,7 @@
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="#home" class="text-2xl font-black gradient-text tracking-tight">SABIA<span class="text-secondary">.</span></a>
       <div class="hidden md:flex items-center gap-1" id="nav-links-desktop"></div>
-      <a href="#contact" class="hidden md:inline-flex px-6 py-2.5 bg-gradient-to-r from-primary to-secondary rounded-lg text-white text-sm font-semibold shadow-lg shadow-primary/25 hover:shadow-primary/40 hover:scale-105 transition-all duration-300">Hire Me</a>
+      <a href="#contact" class="hidden md:inline-flex px-6 py-2.5 bg-pink rounded-lg text-white text-sm font-semibold shadow-lg shadow-pink/25 hover:shadow-pink/40 hover:scale-105 transition-all duration-300">Hire Me</a>
       <button id="mobile-toggle" class="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors">
         <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
         <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
