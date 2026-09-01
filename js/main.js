@@ -94,7 +94,7 @@ class Particle {
     this.speedX = (Math.random() - 0.5) * 0.5;
     this.speedY = (Math.random() - 0.5) * 0.5;
     this.opacity = Math.random() * 0.5 + 0.1;
-    this.color = Math.random() > 0.5 ? '108, 99, 255' : '255, 101, 132';
+    this.color = Math.random() > 0.5 ? '196, 149, 106' : '232, 160, 191';
   }
   update() {
     this.x += this.speedX;
@@ -120,7 +120,7 @@ function connectParticles() {
       const dist = Math.sqrt(dx * dx + dy * dy);
       if (dist < 150) {
         ctx.beginPath();
-        ctx.strokeStyle = `rgba(108, 99, 255, ${0.08 * (1 - dist / 150)})`;
+        ctx.strokeStyle = `rgba(196, 149, 106, ${0.08 * (1 - dist / 150)})`;
         ctx.lineWidth = 0.5;
         ctx.moveTo(particles[i].x, particles[i].y);
         ctx.lineTo(particles[j].x, particles[j].y);
