@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1C1412"/>
-      <stop offset="100%" style="stop-color:#352A24"/>
+      <stop offset="0%" style="stop-color:#F5E6D3"/>
+      <stop offset="100%" style="stop-color:#E8D5C0"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#C4956A"/>
+      <stop offset="0%" style="stop-color:#6B4C3B"/>
       <stop offset="100%" style="stop-color:#E8A0BF"/>
     </linearGradient>
   </defs>
@@ -33,5 +33,5 @@
   </g>
   <!-- Title -->
   <text x="400" y="420" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#accent)" text-anchor="middle">IVOR</text>
-  <text x="400" y="450" font-family="Arial, sans-serif" font-size="14" fill="#8a7a6a" text-anchor="middle">Hospital Management System</text>
+  <text x="400" y="450" font-family="Arial, sans-serif" font-size="14" fill="#8B6F5C" text-anchor="middle">Hospital Management System</text>
 </svg>
