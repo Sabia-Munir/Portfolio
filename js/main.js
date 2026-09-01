@@ -228,7 +228,7 @@ mobileMenu.querySelectorAll('a').forEach(link => {
 const skillCategories = [
   {
     title: 'Frontend',
-    color: '#6C63FF',
+    color: '#C4956A',
     skills: [
       { name: 'React', level: 90 },
       { name: 'Tailwind CSS', level: 92 },
@@ -239,7 +239,7 @@ const skillCategories = [
   },
   {
     title: 'Design',
-    color: '#FF6584',
+    color: '#E8A0BF',
     skills: [
       { name: 'UI/UX Design', level: 88 },
       { name: 'Figma', level: 85 },
@@ -249,7 +249,7 @@ const skillCategories = [
   },
   {
     title: 'Programming',
-    color: '#00D4AA',
+    color: '#D4A574',
     skills: [
       { name: 'Python', level: 80 },
       { name: 'C++', level: 75 },
@@ -259,7 +259,7 @@ const skillCategories = [
   },
   {
     title: 'Tools & More',
-    color: '#FFB800',
+    color: '#C9A87C',
     skills: [
       { name: 'Git & GitHub', level: 85 },
       { name: 'AI/ML Basics', level: 70 },
