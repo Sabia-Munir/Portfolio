@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1C1412"/>
+      <stop offset="100%" style="stop-color:#352A24"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8A0BF"/>
+      <stop offset="100%" style="stop-color:#C4956A"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg)"/>
+  <!-- Coffee cup -->
+  <g transform="translate(400,200)">
+    <ellipse cx="0" cy="0" rx="80" ry="20" fill="none" stroke="url(#accent)" stroke-width="3"/>
+    <path d="M-80,0 L-70,100 Q0,130 70,100 L80,0" fill="none" stroke="url(#accent)" stroke-width="3"/>
+    <path d="M-50,-30 Q-40,-60 0,-60 Q40,-60 50,-30" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.5"/>
+    <path d="M-30,-50 Q-20,-80 0,-80 Q20,-80 30,-50" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.3"/>
+    <!-- Steam -->
+    <path d="M-20,-90 Q-15,-110 -20,-130" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.4"/>
+    <path d="M0,-90 Q5,-115 0,-140" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.3"/>
+    <path d="M20,-90 Q25,-110 20,-130" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.4"/>
+  </g>
+  <!-- Decorative circles -->
+  <circle cx="150" cy="100" r="40" fill="none" stroke="url(#accent)" stroke-width="1" opacity="0.2"/>
+  <circle cx="650" cy="400" r="60" fill="none" stroke="url(#accent)" stroke-width="1" opacity="0.2"/>
+  <circle cx="100" cy="400" r="30" fill="none" stroke="url(#accent)" stroke-width="1" opacity="0.15"/>
+  <!-- Title -->
+  <text x="400" y="400" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#accent)" text-anchor="middle">Cafe Prosa</text>
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="14" fill="#8a7a6a" text-anchor="middle">Immersive 3D Restaurant Experience</text>
+</svg>
