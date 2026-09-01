@@ -187,3 +187,21 @@ form button.submitted {
 .marquee-track:hover {
   animation-play-state: paused;
 }
+
+/* Project card image zoom */
+.project-card img {
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+  transform: scale(1.08);
+}
+
+/* Warm glow effect for buttons */
+.shadow-primary\/25 {
+  box-shadow: 0 10px 30px rgba(196, 149, 106, 0.25);
+}
+
+.shadow-primary\/40 {
+  box-shadow: 0 10px 40px rgba(196, 149, 106, 0.4);
+}
