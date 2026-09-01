@@ -14,8 +14,8 @@ html {
 }
 
 body {
-  background-color: #0a0a0f;
-  color: #e2e8f0;
+  background-color: #1C1412;
+  color: #f0e6dc;
   font-family: 'Inter', system-ui, sans-serif;
   overflow-x: hidden;
 }
@@ -25,35 +25,35 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0a0a0f;
+  background: #1C1412;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #6C63FF, #FF6584);
+  background: linear-gradient(180deg, #C4956A, #E8A0BF);
   border-radius: 4px;
 }
 
 ::selection {
-  background: rgba(108, 99, 255, 0.3);
+  background: rgba(196, 149, 106, 0.3);
   color: #fff;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #6C63FF 0%, #FF6584 100%);
+  background: linear-gradient(135deg, #C4956A 0%, #E8A0BF 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .glass {
-  background: rgba(26, 26, 46, 0.7);
+  background: rgba(53, 42, 36, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(108, 99, 255, 0.1);
+  border: 1px solid rgba(196, 149, 106, 0.1);
 }
 
 .nav-blur {
-  background: rgba(10, 10, 15, 0.85);
+  background: rgba(28, 20, 18, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -140,12 +140,12 @@ form button.submitted {
 
 /* Card hover glow */
 .glass:hover {
-  box-shadow: 0 0 30px rgba(108, 99, 255, 0.08);
+  box-shadow: 0 0 30px rgba(196, 149, 106, 0.08);
 }
 
 /* Focus visible for accessibility */
 *:focus-visible {
-  outline: 2px solid #6C63FF;
+  outline: 2px solid #C4956A;
   outline-offset: 2px;
   border-radius: 4px;
 }
