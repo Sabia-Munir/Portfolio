@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 | Page Not Found - Sabia Munir</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            skin: '#F5E6D3',
+            'skin-light': '#FBF3EB',
+            'skin-dark': '#E8D5C0',
+            brown: '#5C3D2E',
+            'brown-light': '#8B6F5C',
+            'brown-muted': '#A08070',
+            pink: '#E8879C',
+          }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-skin-light text-brown font-sans min-h-screen flex items-center justify-center px-6">
+  <div class="text-center">
+    <h1 class="text-8xl font-extrabold gradient-text mb-4">404</h1>
+    <p class="text-xl text-brown-muted mb-8">This page doesn't exist yet.</p>
+    <a href="/" class="px-8 py-3 bg-pink rounded-xl text-brown font-semibold hover:scale-105 transition-all duration-300 inline-block">
+      Back to Home
+    </a>
+  </div>
+  <style>
+    .gradient-text {
+      background: linear-gradient(135deg, #5C3D2E, #E8879C);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</body>
+</html>
