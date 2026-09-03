@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sabia-munir.github.io/Portfolio/sitemap.xml
