@@ -4,7 +4,7 @@ A modern, professional portfolio website showcasing my work as a UI/UX Designer 
 
 ## Live Preview
 
-Simply open `index.html` in your browser — no build tools required!
+[sabia-munir.github.io/Portfolio](https://sabia-munir.github.io/Portfolio/)
 
 ## Features
 
@@ -17,6 +17,8 @@ Simply open `index.html` in your browser — no build tools required!
 - Contact form with validation
 - Fully responsive design
 - Glass morphism UI
+- SEO optimized with structured data
+- Accessible with skip-to-content navigation
 
 ## Tech Stack
 
@@ -28,11 +30,28 @@ Simply open `index.html` in your browser — no build tools required!
 ## Sections
 
 1. **Hero** — Animated intro with typing effect
-2. **About** — Personal info and key highlights
-3. **Skills** — Animated skill bars across 4 categories
-4. **Projects** — Featured work (CityMind, Cafe Prosa, IVOR)
-5. **Experience** — Timeline of journey
-6. **Contact** — Contact form and social links
+2. **Tech Marquee** — Scrolling tech stack display
+3. **About** — Personal info and key highlights
+4. **Services** — What I offer
+5. **Stats** — Key numbers and achievements
+6. **Skills** — Animated skill bars across 4 categories
+7. **Projects** — Featured work (CityMind, Cafe Prosa, IVOR)
+8. **Experience** — Timeline of journey
+9. **Currently Learning** — Technologies I'm exploring
+10. **Testimonials** — What others say
+11. **Contact** — Contact form and social links
+
+## Getting Started
+
+No build tools required! Simply open `index.html` in your browser.
+
+```bash
+# Clone the repository
+git clone https://github.com/Sabia-Munir/Portfolio.git
+
+# Open in browser
+open index.html
+```
 
 ## Deployment
 
