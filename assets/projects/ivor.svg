@@ -1,37 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F5E6D3"/>
-      <stop offset="100%" style="stop-color:#E8D5C0"/>
+      <stop offset="0%" style="stop-color:#E8D5C0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5E6D3;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6B4C3B"/>
-      <stop offset="100%" style="stop-color:#E8A0BF"/>
+      <stop offset="0%" style="stop-color:#5C3D2E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E8879C;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="800" height="500" fill="url(#bg)"/>
-  <!-- Hospital cross -->
-  <g transform="translate(400,180)" fill="none" stroke="url(#accent)" stroke-width="3">
-    <rect x="-60" y="-20" width="120" height="40" rx="5"/>
-    <rect x="-20" y="-60" width="40" height="120" rx="5"/>
-  </g>
+  <rect width="400" height="200" fill="url(#bg)"/>
+  <!-- Hospital building -->
+  <rect x="150" y="50" width="100" height="100" fill="#5C3D2E" opacity="0.3" rx="5"/>
+  <rect x="160" y="60" width="20" height="15" fill="#FBF3EB" opacity="0.5"/>
+  <rect x="190" y="60" width="20" height="15" fill="#FBF3EB" opacity="0.5"/>
+  <rect x="220" y="60" width="20" height="15" fill="#FBF3EB" opacity="0.5"/>
+  <rect x="160" y="85" width="20" height="15" fill="#FBF3EB" opacity="0.5"/>
+  <rect x="190" y="85" width="20" height="15" fill="#FBF3EB" opacity="0.5"/>
+  <rect x="220" y="85" width="20" height="15" fill="#FBF3EB" opacity="0.5"/>
+  <rect x="185" y="120" width="30" height="30" fill="#E8879C" opacity="0.8"/>
+  <!-- Cross symbol -->
+  <rect x="195" y="125" width="10" height="20" fill="#FBF3EB"/>
+  <rect x="190" y="130" width="20" height="10" fill="#FBF3EB"/>
   <!-- Database cylinders -->
-  <g transform="translate(200,300)" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.5">
-    <ellipse cx="0" cy="0" rx="40" ry="10"/>
-    <path d="M-40,0 L-40,40 Q0,55 40,40 L40,0"/>
-    <ellipse cx="0" cy="40" rx="40" ry="10"/>
+  <g transform="translate(80, 90)" opacity="0.5">
+    <ellipse rx="20" ry="8" fill="#E8879C"/>
+    <rect x="-20" y="0" width="40" height="30" fill="#E8879C"/>
+    <ellipse cx="0" cy="30" rx="20" ry="8" fill="#D46B82"/>
   </g>
-  <g transform="translate(600,300)" fill="none" stroke="url(#accent)" stroke-width="2" opacity="0.5">
-    <ellipse cx="0" cy="0" rx="40" ry="10"/>
-    <path d="M-40,0 L-40,40 Q0,55 40,40 L40,0"/>
-    <ellipse cx="0" cy="40" rx="40" ry="10"/>
+  <g transform="translate(320, 90)" opacity="0.5">
+    <ellipse rx="20" ry="8" fill="#E8879C"/>
+    <rect x="-20" y="0" width="40" height="30" fill="#E8879C"/>
+    <ellipse cx="0" cy="30" rx="20" ry="8" fill="#D46B82"/>
   </g>
   <!-- Connection lines -->
-  <g stroke="url(#accent)" stroke-width="1.5" opacity="0.3">
-    <line x1="240" y1="300" x2="380" y2="200"/>
-    <line x1="560" y1="300" x2="420" y2="200"/>
+  <g stroke="#5C3D2E" stroke-width="2" opacity="0.3" stroke-dasharray="5,5">
+    <line x1="100" y1="100" x2="150" y2="100"/>
+    <line x1="250" y1="100" x2="300" y2="100"/>
   </g>
-  <!-- Title -->
-  <text x="400" y="420" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#accent)" text-anchor="middle">IVOR</text>
-  <text x="400" y="450" font-family="Arial, sans-serif" font-size="14" fill="#8B6F5C" text-anchor="middle">Hospital Management System</text>
 </svg>
