@@ -1,46 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F5E6D3"/>
-      <stop offset="100%" style="stop-color:#E8D5C0"/>
+      <stop offset="0%" style="stop-color:#E8D5C0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5E6D3;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#6B4C3B"/>
-      <stop offset="100%" style="stop-color:#E8A0BF"/>
+      <stop offset="0%" style="stop-color:#5C3D2E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E8879C;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="800" height="500" fill="url(#bg)"/>
-  <!-- Grid pattern -->
-  <g opacity="0.1" stroke="#C4956A" stroke-width="0.5">
-    <line x1="0" y1="0" x2="800" y2="500"/>
-    <line x1="800" y1="0" x2="0" y2="500"/>
-    <circle cx="400" cy="250" r="150" fill="none"/>
-    <circle cx="400" cy="250" r="100" fill="none"/>
-    <circle cx="400" cy="250" r="50" fill="none"/>
+  <rect width="400" height="200" fill="url(#bg)"/>
+  <!-- City grid -->
+  <g opacity="0.3">
+    <rect x="50" y="80" width="30" height="60" fill="#5C3D2E"/>
+    <rect x="90" y="60" width="25" height="80" fill="#5C3D2E"/>
+    <rect x="125" y="90" width="35" height="50" fill="#5C3D2E"/>
+    <rect x="170" y="50" width="28" height="90" fill="#5C3D2E"/>
+    <rect x="210" y="70" width="32" height="70" fill="#5C3D2E"/>
+    <rect x="255" y="85" width="27" height="55" fill="#5C3D2E"/>
+    <rect x="295" y="65" width="30" height="75" fill="#5C3D2E"/>
+    <rect x="340" y="75" width="25" height="65" fill="#5C3D2E"/>
   </g>
-  <!-- Nodes -->
-  <g fill="url(#accent)">
-    <circle cx="200" cy="150" r="12"/>
-    <circle cx="350" cy="120" r="10"/>
-    <circle cx="500" cy="180" r="14"/>
-    <circle cx="600" cy="130" r="8"/>
-    <circle cx="300" cy="300" r="11"/>
-    <circle cx="550" cy="320" r="13"/>
-    <circle cx="450" cy="280" r="9"/>
-    <circle cx="180" cy="350" r="10"/>
-    <circle cx="650" cy="380" r="12"/>
+  <!-- AI brain icon -->
+  <circle cx="200" cy="100" r="40" fill="url(#accent)" opacity="0.9"/>
+  <text x="200" y="108" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FBF3EB" text-anchor="middle">AI</text>
+  <!-- Neural connections -->
+  <g stroke="#E8879C" stroke-width="2" opacity="0.6">
+    <line x1="160" y1="100" x2="120" y2="80"/>
+    <line x1="160" y1="100" x2="120" y2="120"/>
+    <line x1="240" y1="100" x2="280" y2="80"/>
+    <line x1="240" y1="100" x2="280" y2="120"/>
+    <line x1="200" y1="60" x2="200" y2="30"/>
+    <line x1="200" y1="140" x2="200" y2="170"/>
   </g>
-  <!-- Connections -->
-  <g stroke="url(#accent)" stroke-width="1.5" opacity="0.4">
-    <line x1="200" y1="150" x2="350" y2="120"/>
-    <line x1="350" y1="120" x2="500" y2="180"/>
-    <line x1="500" y1="180" x2="600" y2="130"/>
-    <line x1="300" y1="300" x2="450" y2="280"/>
-    <line x1="450" y1="280" x2="550" y2="320"/>
-    <line x1="180" y1="350" x2="300" y2="300"/>
-    <line x1="550" y1="320" x2="650" y2="380"/>
-  </g>
-  <!-- Title -->
-  <text x="400" y="440" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="url(#accent)" text-anchor="middle">CityMind</text>
-  <text x="400" y="470" font-family="Arial, sans-serif" font-size="14" fill="#8B6F5C" text-anchor="middle">AI-Powered Urban Intelligence</text>
+  <circle cx="120" cy="80" r="6" fill="#E8879C"/>
+  <circle cx="120" cy="120" r="6" fill="#E8879C"/>
+  <circle cx="280" cy="80" r="6" fill="#E8879C"/>
+  <circle cx="280" cy="120" r="6" fill="#E8879C"/>
+  <circle cx="200" cy="30" r="6" fill="#E8879C"/>
+  <circle cx="200" cy="170" r="6" fill="#E8879C"/>
 </svg>
