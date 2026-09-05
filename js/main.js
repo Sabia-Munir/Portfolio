@@ -493,6 +493,92 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================================
+// ACTIVE SECTION HIGHLIGHTING
+// ============================================
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('#nav-links-desktop a, #nav-links-mobile a');
+
+function highlightNav() {
+  const scrollPos = window.scrollY + 150;
+  sections.forEach(section => {
+    const top = section.offsetTop;
+    const height = section.offsetHeight;
+    const id = section.getAttribute('id');
+    if (scrollPos >= top && scrollPos < top + height) {
+      navLinks.forEach(link => {
+        link.classList.remove('text-pink', 'font-semibold');
+        link.classList.add('text-brown-muted');
+        if (link.getAttribute('href') === `#${id}`) {
+          link.classList.add('text-pink', 'font-semibold');
+          link.classList.remove('text-brown-muted');
+        }
+      });
+    }
+  });
+}
+window.addEventListener('scroll', highlightNav);
+
+// ============================================
+// CONTACT FORM VALIDATION
+// ============================================
+const contactForm = document.getElementById('contact-form');
+const formInputs = contactForm.querySelectorAll('input, textarea');
+
+formInputs.forEach(input => {
+  input.addEventListener('blur', function() {
+    if (this.value.trim() === '' && this.hasAttribute('required')) {
+      this.classList.add('border-red-400');
+      this.classList.remove('border-brown/10');
+    } else {
+      this.classList.remove('border-red-400');
+      this.classList.add('border-brown/10');
+    }
+  });
+
+  input.addEventListener('input', function() {
+    if (this.classList.contains('border-red-400') && this.value.trim() !== '') {
+      this.classList.remove('border-red-400');
+      this.classList.add('border-brown/10');
+    }
+  });
+});
+
+// ============================================
+// MOBILE MENU SLIDE ANIMATION
+// ============================================
+const mobileToggle2 = document.getElementById('mobile-toggle');
+const mobileMenu2 = document.getElementById('mobile-menu');
+
+if (mobileToggle2 && mobileMenu2) {
+  mobileMenu2.style.maxHeight = '0';
+  mobileMenu2.style.overflow = 'hidden';
+  mobileMenu2.style.transition = 'max-height 0.3s ease-out';
+
+  mobileToggle2.addEventListener('click', () => {
+    const isOpen = mobileMenu2.style.maxHeight !== '0px' && mobileMenu2.style.maxHeight !== '0';
+    if (isOpen) {
+      mobileMenu2.style.maxHeight = '0';
+    } else {
+      mobileMenu2.style.maxHeight = mobileMenu2.scrollHeight + 'px';
+    }
+  });
+}
+
+// ============================================
+// KEYBOARD NAVIGATION
+// ============================================
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    const mobileMenuEl = document.getElementById('mobile-menu');
+    if (mobileMenuEl && !mobileMenuEl.classList.contains('hidden')) {
+      mobileMenuEl.classList.add('hidden');
+      document.getElementById('menu-icon').classList.remove('hidden');
+      document.getElementById('close-icon').classList.add('hidden');
+    }
+  }
+});
+
+// ============================================
 // GSAP ANIMATIONS
 // ============================================
 gsap.registerPlugin(ScrollTrigger);
