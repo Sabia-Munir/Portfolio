@@ -523,3 +523,27 @@ ScrollTrigger.batch('.project-card', {
   onEnter: batch => gsap.from(batch, { y: 60, opacity: 0, stagger: 0.15, duration: 0.8, ease: 'power3.out' }),
   start: 'top 85%'
 });
+
+// ============================================
+// DARK MODE TOGGLE
+// ============================================
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+const sunIcon = document.getElementById('sun-icon');
+const moonIcon = document.getElementById('moon-icon');
+
+if (darkModeToggle) {
+  const isDark = localStorage.getItem('darkMode') === 'true';
+  if (isDark) {
+    document.documentElement.classList.add('dark');
+    sunIcon.classList.remove('hidden');
+    moonIcon.classList.add('hidden');
+  }
+
+  darkModeToggle.addEventListener('click', () => {
+    const currentlyDark = document.documentElement.classList.contains('dark');
+    document.documentElement.classList.toggle('dark');
+    localStorage.setItem('darkMode', !currentlyDark);
+    sunIcon.classList.toggle('hidden');
+    moonIcon.classList.toggle('hidden');
+  });
+}
