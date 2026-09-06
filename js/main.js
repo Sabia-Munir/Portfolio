@@ -483,9 +483,31 @@ experiences.forEach((exp, i) => {
 // ============================================
 // CONTACT FORM
 // ============================================
-document.getElementById('contact-form').addEventListener('submit', function(e) {
+const contactFormEl = document.getElementById('contact-form');
+contactFormEl.addEventListener('submit', function(e) {
   e.preventDefault();
-  const btn = this.querySelector('button');
+  const btn = this.querySelector('button[type="submit"]');
+  const originalText = btn.innerHTML;
+  
+  // Validate all fields
+  let isValid = true;
+  this.querySelectorAll('input, textarea').forEach(input => {
+    if (input.hasAttribute('required') && input.value.trim() === '') {
+      isValid = false;
+      input.classList.add('border-red-400');
+    }
+  });
+
+  if (!isValid) {
+    btn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg> Please fill all fields';
+    btn.style.background = '#ef4444';
+    setTimeout(() => {
+      btn.innerHTML = originalText;
+      btn.style.background = '';
+    }, 2000);
+    return;
+  }
+
   btn.innerHTML = '<svg class="w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Sending...';
   btn.disabled = true;
 
@@ -494,10 +516,10 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
     btn.style.background = '#22c55e';
     this.reset();
     setTimeout(() => {
-      btn.innerHTML = '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg> Send Message';
+      btn.innerHTML = originalText;
       btn.style.background = '';
       btn.disabled = false;
-    }, 2000);
+    }, 2500);
   }, 1500);
 });
 
