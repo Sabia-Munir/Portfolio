@@ -1,15 +1,4 @@
 // ============================================
-// SCROLL PROGRESS BAR
-// ============================================
-const scrollProgress = document.getElementById('scroll-progress');
-window.addEventListener('scroll', () => {
-  const scrollTop = document.documentElement.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  const progress = (scrollTop / scrollHeight) * 100;
-  scrollProgress.style.width = progress + '%';
-});
-
-// ============================================
 // PRELOADER
 // ============================================
 window.addEventListener('load', () => {
@@ -28,13 +17,34 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 500) {
     backToTop.style.opacity = '1';
     backToTop.style.pointerEvents = 'auto';
+    backToTop.style.transform = 'translateY(0)';
   } else {
     backToTop.style.opacity = '0';
     backToTop.style.pointerEvents = 'none';
+    backToTop.style.transform = 'translateY(20px)';
   }
 });
 backToTop.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// ============================================
+// SCROLL PROGRESS BAR
+// ============================================
+const scrollProgress = document.getElementById('scroll-progress');
+let ticking = false;
+
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    requestAnimationFrame(() => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      scrollProgress.style.width = progress + '%';
+      ticking = false;
+    });
+    ticking = true;
+  }
 });
 
 // ============================================
