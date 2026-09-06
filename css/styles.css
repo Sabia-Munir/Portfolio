@@ -156,6 +156,11 @@ body {
   will-change: transform, opacity;
 }
 
+/* Smooth section transitions */
+section {
+  position: relative;
+}
+
 /* Hero visual floating tags */
 .hero-visual .glass {
   animation: float 4s ease-in-out infinite;
