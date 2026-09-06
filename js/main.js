@@ -190,14 +190,26 @@ document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(e
 // NAVBAR SCROLL EFFECT
 // ============================================
 const navbar = document.getElementById('navbar');
+let lastScroll = 0;
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
+  const currentScroll = window.scrollY;
+  
+  if (currentScroll > 50) {
     navbar.classList.add('nav-blur', 'shadow-lg');
-    navbar.style.boxShadow = '0 4px 30px rgba(108, 99, 255, 0.05)';
+    navbar.style.boxShadow = '0 4px 30px rgba(92, 61, 46, 0.08)';
   } else {
     navbar.classList.remove('nav-blur', 'shadow-lg');
     navbar.style.boxShadow = 'none';
   }
+
+  // Hide/show navbar on scroll direction
+  if (currentScroll > lastScroll && currentScroll > 200) {
+    navbar.style.transform = 'translateY(-100%)';
+  } else {
+    navbar.style.transform = 'translateY(0)';
+  }
+  lastScroll = currentScroll;
 });
 
 // ============================================
