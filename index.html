@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Sabia Munir - UI/UX Designer & Frontend Developer Portfolio | CS Student at FAST NUCES '28">
-  <meta name="keywords" content="Sabia Munir, UI/UX Designer, Frontend Developer, React, Portfolio, FAST NUCES">
+  <meta name="description" content="Sabia Munir - CS Student at FAST NUCES '28 | UI/UX Designer & Frontend Developer specializing in React, Python, and creative web experiences.">
+  <meta name="keywords" content="Sabia Munir, UI/UX Designer, Frontend Developer, React, Python, Portfolio, FAST NUCES, Three.js, AI">
   <meta name="author" content="Sabia Munir">
   <meta name="theme-color" content="#FBF3EB">
   <meta name="robots" content="index, follow">
+
+  <title>Sabia Munir | UI/UX Designer & Frontend Developer</title>
 
   <script type="application/ld+json">
   {
@@ -16,10 +18,13 @@
     "name": "Sabia Munir",
     "url": "https://sabia-munir.github.io/Portfolio/",
     "jobTitle": "UI/UX Designer & Frontend Developer",
+    "description": "CS student at FAST NUCES building beautiful, functional digital experiences across websites, apps, and games.",
     "affiliation": {
       "@type": "CollegeOrUniversity",
-      "name": "FAST NUCES"
+      "name": "FAST NUCES",
+      "url": "https://nu.edu.pk"
     },
+    "knowsAbout": ["React", "Tailwind CSS", "Python", "C++", "Figma", "JavaScript", "Three.js", "UI/UX Design"],
     "sameAs": [
       "https://github.com/Sabia-Munir",
       "https://www.linkedin.com/in/sabia-munir-054350325"
@@ -27,28 +32,22 @@
   }
   </script>
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Sabia Munir | Portfolio">
-  <meta property="og:description" content="UI/UX Designer & Frontend Developer building things people enjoy using.">
+  <meta property="og:title" content="Sabia Munir | UI/UX Designer & Frontend Developer">
+  <meta property="og:description" content="CS student at FAST NUCES building beautiful, functional digital experiences.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sabia-munir.github.io/Portfolio/">
   <meta property="og:image" content="assets/og-image.png">
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sabia Munir | Portfolio">
   <meta name="twitter:description" content="UI/UX Designer & Frontend Developer building things people enjoy using.">
 
-  <title>Sabia Munir | UI/UX Designer & Frontend Developer</title>
-
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -74,7 +73,6 @@
     }
   </script>
 
-  <!-- GSAP + ScrollTrigger -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
@@ -88,7 +86,7 @@
   </a>
 
   <!-- Scroll Progress Bar -->
-  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-brown to-pink z-[60] transition-all duration-150" style="width: 0%"></div>
+  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-brown to-pink z-[60] transition-[width] duration-150" style="width: 0%"></div>
 
   <!-- Preloader -->
   <div id="preloader" class="fixed inset-0 bg-skin z-[100] flex items-center justify-center transition-opacity duration-500">
@@ -102,7 +100,7 @@
     </div>
   </div>
 
-  <!-- Back to Top -->
+  <!-- Back to Top Button -->
   <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-pink text-brown shadow-lg shadow-pink/25 flex items-center justify-center z-50 opacity-0 pointer-events-none transition-all duration-300 hover:scale-110 hover:shadow-pink/40" aria-label="Back to top">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
@@ -125,40 +123,42 @@
   <canvas id="particles" class="fixed inset-0 pointer-events-none z-0"></canvas>
 
   <!-- ============================================ -->
+  <!-- NAVBAR -->
+  <!-- ============================================ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" role="navigation" aria-label="Main navigation">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#home" class="text-2xl font-black gradient-text tracking-tight">SABIA<span class="text-pink">.</span></a>
+
+      <div class="hidden md:flex items-center gap-1" id="nav-links-desktop"></div>
+
+      <a href="#contact" class="hidden md:inline-flex px-6 py-2.5 bg-pink rounded-lg text-brown text-sm font-semibold shadow-lg shadow-pink/25 hover:shadow-pink/40 hover:scale-105 transition-all duration-300">
+        Hire Me
+      </a>
+
+      <button id="dark-mode-toggle" class="hidden md:flex w-10 h-10 items-center justify-center rounded-lg hover:bg-brown/10 transition-colors text-brown-muted hover:text-brown" aria-label="Toggle dark mode">
+        <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+      </button>
+
+      <button id="mobile-toggle" class="md:hidden text-brown p-2 hover:bg-brown/10 rounded-lg transition-colors">
+        <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="md:hidden hidden nav-blur border-t border-brown/5">
+      <div class="px-6 py-4 space-y-2" id="nav-links-mobile"></div>
+    </div>
+  </nav>
+
+  <!-- ============================================ -->
   <!-- MAIN CONTENT -->
   <!-- ============================================ -->
   <main id="main-content">
-
-    <!-- ======== NAVBAR ======== -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" role="navigation" aria-label="Main navigation">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#home" class="text-2xl font-black gradient-text tracking-tight">SABIA<span class="text-pink">.</span></a>
-
-        <div class="hidden md:flex items-center gap-1" id="nav-links-desktop"></div>
-
-        <a href="#contact" class="hidden md:inline-flex px-6 py-2.5 bg-pink rounded-lg text-brown text-sm font-semibold shadow-lg shadow-pink/25 hover:shadow-pink/40 hover:scale-105 transition-all duration-300">
-          Hire Me
-        </a>
-
-        <button id="dark-mode-toggle" class="hidden md:flex w-10 h-10 items-center justify-center rounded-lg hover:bg-brown/10 transition-colors text-brown-muted hover:text-brown" aria-label="Toggle dark mode">
-          <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
-          <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
-        </button>
-
-        <button id="mobile-toggle" class="md:hidden text-brown p-2 hover:bg-brown/10 rounded-lg transition-colors">
-          <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-          <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
-          </svg>
-        </button>
-      </div>
-
-      <div id="mobile-menu" class="md:hidden hidden nav-blur border-t border-brown/5">
-        <div class="px-6 py-4 space-y-2" id="nav-links-mobile"></div>
-      </div>
-    </nav>
 
     <!-- ======== HERO SECTION ======== -->
     <section id="home" class="relative min-h-screen flex items-center px-6 pt-24 pb-16" role="banner">
@@ -218,26 +218,14 @@
         <!-- Right Column - Visual -->
         <div class="gsap-hero-visual flex justify-center lg:justify-end">
           <div class="relative">
-            <!-- Decorative Circle -->
             <div class="w-64 h-64 md:w-80 md:h-80 rounded-full bg-gradient-to-br from-brown/10 to-pink/10 border border-brown/10 flex items-center justify-center relative">
               <span class="text-6xl md:text-7xl font-black gradient-text">SM</span>
-              <!-- Orbit ring -->
               <div class="absolute inset-0 rounded-full border border-dashed border-pink/20 animate-spin" style="animation-duration: 30s;"></div>
             </div>
-
-            <!-- Floating Tech Tags -->
-            <div class="absolute -top-4 -right-4 px-4 py-2 glass rounded-xl text-sm font-mono text-brown shadow-lg animate-float" style="animation-delay: 0s;">
-              React
-            </div>
-            <div class="absolute top-1/4 -left-8 px-4 py-2 glass rounded-xl text-sm font-mono text-brown shadow-lg animate-float" style="animation-delay: 1s;">
-              Figma
-            </div>
-            <div class="absolute bottom-1/4 -right-10 px-4 py-2 glass rounded-xl text-sm font-mono text-brown shadow-lg animate-float" style="animation-delay: 2s;">
-              Python
-            </div>
-            <div class="absolute -bottom-4 left-1/4 px-4 py-2 glass rounded-xl text-sm font-mono text-brown shadow-lg animate-float" style="animation-delay: 3s;">
-              C++
-            </div>
+            <div class="absolute -top-4 -right-4 px-4 py-2 glass rounded-xl text-sm font-mono text-brown shadow-lg animate-float" style="animation-delay: 0s;">React</div>
+            <div class="absolute top-1/4 -left-8 px-4 py-2 glass rounded-xl text-sm font-mono text-brown shadow-lg animate-float" style="animation-delay: 1s;">Figma</div>
+            <div class="absolute bottom-1/4 -right-10 px-4 py-2 glass rounded-xl text-sm font-mono text-brown shadow-lg animate-float" style="animation-delay: 2s;">Python</div>
+            <div class="absolute -bottom-4 left-1/4 px-4 py-2 glass rounded-xl text-sm font-mono text-brown shadow-lg animate-float" style="animation-delay: 3s;">C++</div>
           </div>
         </div>
       </div>
@@ -407,7 +395,7 @@
       </div>
     </section>
 
-    <!-- ======== PROJECTS SECTION ======== -->
+    <!-- ======== PROJECTS SECTION - CASE STUDY STYLE ======== -->
     <section id="projects" class="relative py-32 px-6">
       <div class="max-w-7xl mx-auto">
         <div class="text-center mb-20 gsap-section">
@@ -419,7 +407,7 @@
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid"></div>
+        <div class="space-y-16" id="projects-grid"></div>
 
         <div class="text-center mt-16 gsap-section">
           <a href="https://github.com/Sabia-Munir" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-brown rounded-xl text-skin font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
@@ -459,50 +447,6 @@
       </div>
     </section>
 
-    <!-- ======== SERVICES SECTION ======== -->
-    <section class="relative py-24 px-6">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-16 gsap-section">
-          <span class="text-pink text-sm font-semibold tracking-widest uppercase">Services</span>
-          <h2 class="text-4xl md:text-5xl font-black mt-4 mb-6">What I <span class="gradient-text">Do</span></h2>
-          <div class="w-20 h-1 bg-gradient-to-r from-brown to-pink mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-          <div class="glass rounded-2xl p-8 text-center group hover:border-pink/30 hover:-translate-y-2 transition-all duration-300 gsap-section">
-            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brown/20 to-pink/5 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-              <svg class="w-8 h-8 text-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-brown mb-3">UI/UX Design</h3>
-            <p class="text-brown-muted text-sm leading-relaxed">Creating intuitive, beautiful interfaces that users love. From wireframes to high-fidelity prototypes in Figma.</p>
-          </div>
-
-          <div class="glass rounded-2xl p-8 text-center group hover:border-pink/30 hover:-translate-y-2 transition-all duration-300 gsap-section" style="transition-delay: 100ms;">
-            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brown/20 to-pink/5 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-              <svg class="w-8 h-8 text-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-brown mb-3">Web Development</h3>
-            <p class="text-brown-muted text-sm leading-relaxed">Building fast, responsive websites with React, Tailwind CSS, and modern web technologies.</p>
-          </div>
-
-          <div class="glass rounded-2xl p-8 text-center group hover:border-pink/30 hover:-translate-y-2 transition-all duration-300 gsap-section" style="transition-delay: 200ms;">
-            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-brown/20 to-pink/5 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-              <svg class="w-8 h-8 text-pink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-brown mb-3">Game Development</h3>
-            <p class="text-brown-muted text-sm leading-relaxed">Developing games in C++ and Python with AI integration, from concept to playable prototypes.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ======== EXPERIENCE SECTION ======== -->
     <section id="experience" class="relative py-32 px-6">
       <div class="max-w-4xl mx-auto">
@@ -514,37 +458,6 @@
 
         <div class="relative" id="timeline">
           <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-brown via-pink to-transparent"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======== CURRENTLY LEARNING SECTION ======== -->
-    <section class="relative py-20 px-6 overflow-hidden">
-      <div class="max-w-6xl mx-auto text-center gsap-section">
-        <span class="text-pink text-sm font-semibold tracking-widest uppercase mb-4 block">Always Growing</span>
-        <h3 class="text-2xl md:text-3xl font-bold text-brown mb-8">Currently <span class="gradient-text">Learning</span></h3>
-
-        <div class="flex flex-wrap justify-center gap-4">
-          <div class="glass rounded-xl px-6 py-3 flex items-center gap-3 group hover:border-pink/30 transition-all">
-            <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-            <span class="text-brown-light text-sm font-medium">TypeScript</span>
-          </div>
-          <div class="glass rounded-xl px-6 py-3 flex items-center gap-3 group hover:border-pink/30 transition-all">
-            <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-            <span class="text-brown-light text-sm font-medium">Next.js</span>
-          </div>
-          <div class="glass rounded-xl px-6 py-3 flex items-center gap-3 group hover:border-pink/30 transition-all">
-            <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
-            <span class="text-brown-light text-sm font-medium">Node.js</span>
-          </div>
-          <div class="glass rounded-xl px-6 py-3 flex items-center gap-3 group hover:border-pink/30 transition-all">
-            <span class="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
-            <span class="text-brown-light text-sm font-medium">MongoDB</span>
-          </div>
-          <div class="glass rounded-xl px-6 py-3 flex items-center gap-3 group hover:border-pink/30 transition-all">
-            <span class="w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
-            <span class="text-brown-light text-sm font-medium">Docker</span>
-          </div>
         </div>
       </div>
     </section>
@@ -670,47 +583,6 @@
       </div>
     </section>
 
-    <!-- ======== TESTIMONIALS SECTION ======== -->
-    <section class="relative py-24 px-6">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-16 gsap-section">
-          <span class="text-pink text-sm font-semibold tracking-widest uppercase">Testimonials</span>
-          <h2 class="text-4xl md:text-5xl font-black mt-4 mb-6">What People <span class="gradient-text">Say</span></h2>
-          <div class="w-20 h-1 bg-gradient-to-r from-brown to-pink mx-auto rounded-full"></div>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-6">
-          <div class="glass rounded-2xl p-8 gsap-section relative">
-            <svg class="w-10 h-10 text-pink/20 mb-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
-            <p class="text-brown-light leading-relaxed mb-6 italic">"Sabia's design sense is exceptional. She transformed our complex ideas into an intuitive, beautiful interface that our users love."</p>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-brown to-pink flex items-center justify-center text-skin font-bold text-sm">AK</div>
-              <div>
-                <p class="text-brown font-semibold text-sm">Ahmed Khan</p>
-                <p class="text-brown-muted text-xs">Project Collaborator</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="glass rounded-2xl p-8 gsap-section relative" style="transition-delay: 100ms;">
-            <svg class="w-10 h-10 text-pink/20 mb-4" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
-            </svg>
-            <p class="text-brown-light leading-relaxed mb-6 italic">"Working with Sabia was a great experience. Her attention to detail and clean code made our project a huge success."</p>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full bg-gradient-to-br from-pink to-brown flex items-center justify-center text-skin font-bold text-sm">FA</div>
-              <div>
-                <p class="text-brown font-semibold text-sm">Fatima Ali</p>
-                <p class="text-brown-muted text-xs">Team Lead</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- ======== FOOTER ======== -->
     <footer class="relative py-16 px-6 border-t border-brown/5">
       <div class="max-w-6xl mx-auto">
@@ -751,9 +623,9 @@
           </div>
         </div>
 
-        <div class="mt-8 pt-8 border-t border-brown/5 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p class="text-sm text-brown-muted/60">&copy; 2026 Sabia Munir. Crafted with passion.</p>
-          <p class="text-xs text-brown-muted/40">Built with HTML, Tailwind CSS & JavaScript</p>
+        <div class="border-t border-brown/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p class="text-brown-muted text-sm">&copy; 2026 Sabia Munir. Crafted with passion.</p>
+          <p class="text-brown-muted text-xs">Designed & Built by Sabia Munir</p>
         </div>
       </div>
     </footer>

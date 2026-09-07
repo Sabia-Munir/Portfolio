@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================
+   BASE RESET & DEFAULTS
+   ============================================ */
+
 * {
   margin: 0;
   padding: 0;
@@ -20,6 +24,15 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background: rgba(232, 135, 156, 0.3);
+  color: #5C3D2E;
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -33,17 +46,19 @@ body {
   border-radius: 4px;
 }
 
-::selection {
-  background: rgba(232, 135, 156, 0.3);
-  color: #5C3D2E;
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #5C3D2E, #D46B82);
 }
 
-.gradient-text {
-  background: linear-gradient(135deg, #5C3D2E 0%, #E8879C 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #E8879C #F5E6D3;
 }
+
+/* ============================================
+   GLASS MORPHISM
+   ============================================ */
 
 .glass {
   background: rgba(255, 255, 255, 0.6);
@@ -58,7 +73,146 @@ body {
   -webkit-backdrop-filter: blur(20px);
 }
 
-/* Scroll Animation */
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+
+.gradient-text {
+  background: linear-gradient(135deg, #5C3D2E 0%, #E8879C 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================
+   PROJECT CARD EFFECTS
+   ============================================ */
+
+.project-card {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.4s ease,
+              border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 30px 60px rgba(92, 61, 46, 0.15);
+  border-color: rgba(232, 135, 156, 0.4);
+}
+
+.project-card .project-visual {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-card:hover .project-visual {
+  transform: scale(1.05);
+}
+
+.project-card .project-icon {
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-icon {
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* ============================================
+   SKILL BAR ANIMATIONS
+   ============================================ */
+
+.skill-bar-fill {
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.skill-card {
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(232, 135, 156, 0.3);
+}
+
+/* ============================================
+   TIMELINE STYLES
+   ============================================ */
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E8879C, #5C3D2E);
+  border: 3px solid #FBF3EB;
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .timeline-dot {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.timeline-content {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(92, 61, 46, 0.1);
+}
+
+/* ============================================
+   FLOATING ANIMATION
+   ============================================ */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ============================================
+   MARQUEE ANIMATION
+   ============================================ */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 25s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+  opacity: 0.7;
+}
+
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+
 .animate-on-scroll {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
@@ -68,115 +222,228 @@ body {
   transform: translate(0, 0) !important;
 }
 
-/* Skill Bar Animation */
-.skill-bar-fill {
-  width: 0;
-  transition: width 1.2s ease-out;
+/* ============================================
+   GSAP ANIMATION HELPERS
+   ============================================ */
+
+.gsap-hero,
+.gsap-hero-visual,
+.gsap-section {
+  will-change: transform, opacity;
 }
 
-/* Project card hover */
-.project-card {
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease, border-color 0.3s ease;
+/* ============================================
+   FORM STYLES
+   ============================================ */
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #E8879C;
+  box-shadow: 0 0 0 3px rgba(232, 135, 156, 0.1);
 }
 
-.project-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 30px 60px rgba(92, 61, 46, 0.15);
+input::placeholder,
+textarea::placeholder {
+  color: #A08070;
+  opacity: 0.5;
+}
+
+/* ============================================
+   BUTTON HOVER EFFECTS
+   ============================================ */
+
+.btn-primary {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(232, 135, 156, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* ============================================
+   SECTION STYLES
+   ============================================ */
+
+section {
+  position: relative;
+}
+
+/* ============================================
+   HERO VISUAL FLOATING TAGS
+   ============================================ */
+
+.hero-visual .glass {
+  animation: float 4s ease-in-out infinite;
+}
+
+.hero-visual .glass:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+.hero-visual .glass:nth-child(3) {
+  animation-delay: 1s;
+}
+
+.hero-visual .glass:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+/* ============================================
+   STAT COUNTER PULSE
+   ============================================ */
+
+@keyframes countPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.count-animate {
+  animation: countPulse 0.3s ease;
+}
+
+/* ============================================
+   TAG BADGE HOVER
+   ============================================ */
+
+.tag-badge {
+  transition: all 0.2s ease;
+}
+
+.tag-badge:hover {
+  background: rgba(232, 135, 156, 0.2);
   border-color: rgba(232, 135, 156, 0.4);
+  transform: translateY(-2px);
 }
 
-.project-card .project-image {
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+/* ============================================
+   FEATURE LIST ITEM
+   ============================================ */
+
+.feature-item {
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.project-card:hover .project-image {
-  transform: scale(1.08);
+.feature-item:hover {
+  transform: translateX(4px);
+  background: rgba(232, 135, 156, 0.05);
 }
 
-.project-card .toggle-features:hover {
-  text-decoration: underline;
-}
+/* ============================================
+   FOCUS VISIBLE FOR ACCESSIBILITY
+   ============================================ */
 
-.project-card .github-link {
-  transition: all 0.3s ease;
-}
-
-.project-card:hover .github-link {
-  background: rgba(92, 61, 46, 0.1);
-  color: #5C3D2E;
-}
-
-/* Floating animation */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-.animate-float {
-  animation: float 6s ease-in-out infinite;
-}
-
-/* Marquee */
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-.marquee-track {
-  animation: marquee 20s linear infinite;
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
-  opacity: 0.8;
-}
-
-/* Focus visible for accessibility */
 *:focus-visible {
   outline: 2px solid #E8879C;
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-/* Reduced motion preference */
+/* ============================================
+   REDUCED MOTION PREFERENCE
+   ============================================ */
+
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
+
   .animate-on-scroll {
     opacity: 1 !important;
     transform: none !important;
   }
+
+  .marquee-track {
+    animation: none;
+  }
+
+  .animate-float {
+    animation: none;
+  }
+
+  .skill-bar-fill {
+    transition: none;
+  }
 }
 
-/* GSAP animation helpers */
-.gsap-hero, .gsap-section {
-  will-change: transform, opacity;
-}
+/* ============================================
+   PRINT STYLES
+   ============================================ */
 
-/* Smooth section transitions */
-section {
-  position: relative;
-}
-
-/* Hero visual floating tags */
-.hero-visual .glass {
-  animation: float 4s ease-in-out infinite;
-}
-
-.hero-visual .glass:nth-child(2) { animation-delay: 0.5s; }
-.hero-visual .glass:nth-child(3) { animation-delay: 1s; }
-.hero-visual .glass:nth-child(4) { animation-delay: 1.5s; }
-
-/* Print styles */
 @media print {
-  #particles, #preloader, #back-to-top, nav, .floating-hire {
+  #particles,
+  #preloader,
+  #back-to-top,
+  #scroll-progress,
+  nav,
+  .floating-hire,
+  .animate-float,
+  .marquee-track {
     display: none !important;
   }
+
   body {
     background: white;
     color: #333;
   }
+
+  .glass {
+    background: transparent;
+    backdrop-filter: none;
+    border: 1px solid #ddd;
+  }
+
+  .gradient-text {
+    -webkit-text-fill-color: #5C3D2E;
+    background: none;
+  }
+
+  section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a {
+    text-decoration: underline;
+    color: #5C3D2E;
+  }
+
+  a[href]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #888;
+  }
+}
+
+/* ============================================
+   DARK MODE OVERRIDES (Optional)
+   ============================================ */
+
+.dark body,
+.dark {
+  background-color: #1a1a1a;
+  color: #e0d5cc;
+}
+
+.dark .glass {
+  background: rgba(30, 30, 30, 0.8);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .nav-blur {
+  background: rgba(26, 26, 26, 0.92);
 }
