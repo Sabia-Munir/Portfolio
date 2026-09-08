@@ -372,6 +372,7 @@ projects.forEach((project, i) => {
   const isReversed = i % 2 !== 0;
 
   card.innerHTML = `
+    <div class="card-shine"></div>
     <div class="grid lg:grid-cols-2 ${isReversed ? 'lg:direction-rtl' : ''}">
       <!-- Visual Area -->
       <div class="relative h-64 lg:h-auto overflow-hidden bg-gradient-to-br from-skin-dark via-brown/20 to-skin ${isReversed ? 'lg:order-2' : ''}">
@@ -719,4 +720,156 @@ ScrollTrigger.batch('.timeline-item', {
     ease: 'power3.out',
   }),
   start: 'top 85%',
+});
+
+// ============================================
+// 3D TILT EFFECT ON PROJECT CARDS
+// ============================================
+document.querySelectorAll('.project-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    const rotateX = (y - centerY) / 20;
+    const rotateY = (centerX - x) / 20;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+    card.style.transition = 'transform 0.1s ease';
+
+    // Shine effect
+    const shine = card.querySelector('.card-shine');
+    if (shine) {
+      shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(232,135,156,0.15) 0%, transparent 60%)`;
+    }
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+    card.style.transition = 'transform 0.5s ease';
+    const shine = card.querySelector('.card-shine');
+    if (shine) {
+      shine.style.background = 'transparent';
+    }
+  });
+});
+
+// ============================================
+// MAGNETIC BUTTON EFFECT
+// ============================================
+document.querySelectorAll('.magnetic-btn').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+    btn.style.transition = 'transform 0.2s ease';
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = 'translate(0, 0)';
+    btn.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+  });
+});
+
+// ============================================
+// CUSTOM CURSOR FOLLOWER
+// ============================================
+const cursor = document.createElement('div');
+cursor.className = 'custom-cursor';
+cursor.innerHTML = '<div class="cursor-dot"></div><div class="cursor-ring"></div>';
+document.body.appendChild(cursor);
+
+const cursorDot = cursor.querySelector('.cursor-dot');
+const cursorRing = cursor.querySelector('.cursor-ring');
+
+let mouseX = 0, mouseY = 0;
+let ringX = 0, ringY = 0;
+
+document.addEventListener('mousemove', (e) => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursorDot.style.left = mouseX + 'px';
+  cursorDot.style.top = mouseY + 'px';
+});
+
+function animateCursor() {
+  ringX += (mouseX - ringX) * 0.15;
+  ringY += (mouseY - ringY) * 0.15;
+  cursorRing.style.left = ringX + 'px';
+  cursorRing.style.top = ringY + 'px';
+  requestAnimationFrame(animateCursor);
+}
+animateCursor();
+
+// Cursor hover states
+document.querySelectorAll('a, button, .project-card').forEach(el => {
+  el.addEventListener('mouseenter', () => cursor.classList.add('cursor-hover'));
+  el.addEventListener('mouseleave', () => cursor.classList.remove('cursor-hover'));
+});
+
+// Hide cursor on mobile
+if ('ontouchstart' in window) {
+  cursor.style.display = 'none';
+}
+
+// ============================================
+// TEXT REVEAL ANIMATION
+// ============================================
+function splitTextIntoSpans(element) {
+  const text = element.textContent;
+  element.innerHTML = '';
+  text.split('').forEach((char, i) => {
+    const span = document.createElement('span');
+    span.textContent = char === ' ' ? '\u00A0' : char;
+    span.style.display = 'inline-block';
+    span.style.opacity = '0';
+    span.style.transform = 'translateY(40px) rotateX(-90deg)';
+    span.style.transition = `all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) ${i * 0.03}s`;
+    element.appendChild(span);
+  });
+}
+
+// Apply to hero heading
+const heroHeading = document.querySelector('.text-reveal');
+if (heroHeading) {
+  splitTextIntoSpans(heroHeading);
+  setTimeout(() => {
+    heroHeading.querySelectorAll('span').forEach(span => {
+      span.style.opacity = '1';
+      span.style.transform = 'translateY(0) rotateX(0)';
+    });
+  }, 500);
+}
+
+// ============================================
+// PARALLAX SCROLL EFFECTS
+// ============================================
+document.querySelectorAll('.parallax-element').forEach(el => {
+  const speed = parseFloat(el.dataset.speed) || 0.5;
+  gsap.to(el, {
+    y: () => -100 * speed,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: el,
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+  });
+});
+
+// Floating tags parallax
+document.querySelectorAll('.hero-tag').forEach((tag, i) => {
+  gsap.to(tag, {
+    y: () => -30 * (i + 1),
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#home',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+    },
+  });
 });
