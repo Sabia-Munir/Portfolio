@@ -539,6 +539,89 @@ section {
 }
 
 /* ============================================
+   PAGE LOAD TRANSITION
+   ============================================ */
+
+.page-transition {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: pageReveal 0.8s ease forwards;
+}
+
+@keyframes pageReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+main {
+  animation: pageReveal 0.6s ease 1.4s forwards;
+  opacity: 0;
+}
+
+/* ============================================
+   BUTTON RIPPLE EFFECT
+   ============================================ */
+
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), rgba(255,255,255,0.3) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.btn-ripple:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   GLOW EFFECT ON HOVER
+   ============================================ */
+
+.glow-hover {
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 30px rgba(232, 135, 156, 0.3), 0 0 60px rgba(232, 135, 156, 0.1);
+}
+
+/* ============================================
+   ANIMATED GRADIENT BACKGROUND
+   ============================================ */
+
+.gradient-bg {
+  background: linear-gradient(-45deg, #FBF3EB, #F5E6D3, #E8D5C0, #FBF3EB);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ============================================
+   SECTION DIVIDER
+   ============================================ */
+
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(232,135,156,0.3), transparent);
+  margin: 0 auto;
+  width: 60%;
+}
+
+/* ============================================
    CARD TILT PERSPECTIVE
    ============================================ */
 
@@ -549,4 +632,36 @@ section {
 
 .project-card > * {
   transform: translateZ(30px);
+}
+
+/* ============================================
+   LINE CLAMP UTILITY
+   ============================================ */
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ============================================
+   PROJECT CARD HOVER LIFT
+   ============================================ */
+
+.project-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 50px rgba(92, 61, 46, 0.08), 0 8px 20px rgba(232, 135, 156, 0.06);
+}
+
+.project-card img {
+  transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.project-card:hover img {
+  transform: scale(1.08);
 }
