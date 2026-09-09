@@ -78,7 +78,7 @@
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-skin text-brown font-sans overflow-x-hidden">
+<body class="gradient-bg text-brown font-sans overflow-x-hidden">
 
   <!-- Skip to Content -->
   <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-pink text-brown px-4 py-2 rounded-lg z-[200] font-semibold">
@@ -190,13 +190,13 @@
           </p>
 
           <div class="gsap-hero flex flex-col sm:flex-row gap-4 items-start">
-            <a href="#projects" class="magnetic-btn group px-8 py-4 bg-brown rounded-xl text-skin font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
+            <a href="#projects" class="magnetic-btn btn-ripple group px-8 py-4 bg-brown rounded-xl text-skin font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 flex items-center gap-2">
               View My Work
               <svg class="w-5 h-5 group-hover:translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
               </svg>
             </a>
-            <a href="#contact" class="magnetic-btn px-8 py-4 bg-pink rounded-xl text-brown font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-pink/20">
+            <a href="#contact" class="magnetic-btn btn-ripple px-8 py-4 bg-pink rounded-xl text-brown font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-pink/20">
               Let's Talk
             </a>
           </div>
@@ -228,6 +228,14 @@
             <div class="absolute -bottom-4 left-1/4 px-4 py-2 glass rounded-xl text-sm font-mono text-brown shadow-lg animate-float" style="animation-delay: 3s;">C++</div>
           </div>
         </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+        <span class="text-xs text-brown-muted font-medium tracking-widest uppercase">Scroll</span>
+        <svg class="w-5 h-5 text-brown-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+        </svg>
       </div>
 
       <!-- Background Blurs -->
@@ -407,7 +415,7 @@
           </p>
         </div>
 
-        <div class="space-y-16" id="projects-grid"></div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid"></div>
 
         <div class="text-center mt-16 gsap-section">
           <a href="https://github.com/Sabia-Munir" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-brown rounded-xl text-skin font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
