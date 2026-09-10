@@ -386,6 +386,23 @@ const projects = [
       'PDF/DOCX export',
     ],
   },
+  {
+    title: 'Chrono Rift',
+    subtitle: 'Tactical RPG with OS Concepts',
+    description: 'A real-time tactical RPG in C++/SDL2 that is an OS concepts project in disguise — multiple cooperating processes syncing over shared memory and signals to drive live gameplay. Co-developed with Areeba Waqar.',
+    image: 'assets/projects/chronorift.png',
+    tags: ['C++', 'SDL2', 'Shared Memory', 'Signals', 'POSIX'],
+    color: '#F59E0B',
+    github: 'https://github.com/areebaxw/Chrono-Rift',
+    features: [
+      'Multi-process architecture (arbiter, hip, asp)',
+      'Custom stamina-based turn scheduler',
+      'Shared memory for live game state',
+      'Deadlock detection with Global Resource Table',
+      'Signal-driven mechanics (SIGRTMIN, SIGUSR1)',
+      '20-slot weapon inventory with block allocation',
+    ],
+  },
 ];
 
 const projectsGrid = document.getElementById('projects-grid');
