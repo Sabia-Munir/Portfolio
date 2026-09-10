@@ -369,6 +369,23 @@ const projects = [
       'Deploy-ready static site',
     ],
   },
+  {
+    title: 'Lumina',
+    subtitle: 'Unified Desktop Workspace',
+    description: 'A unified desktop ecosystem merging writing, sketching, data persistence, and focus tracking into one dark-mode environment. Built to kill context-switching during deep work. Co-developed with Areeba Waqar.',
+    image: 'assets/projects/lumina.png',
+    tags: ['React 19', 'TypeScript', 'Electron', 'Java', 'JavaFX', 'SQL Server'],
+    color: '#10B981',
+    github: 'https://lnkd.in/dqeiK3J3',
+    features: [
+      'Rich editor with genre presets',
+      'Vector canvas with guide overlays',
+      'Focus system with mini-games',
+      'Dual-engine architecture',
+      'Custom theme engine with hex picker',
+      'PDF/DOCX export',
+    ],
+  },
 ];
 
 const projectsGrid = document.getElementById('projects-grid');
