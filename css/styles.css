@@ -683,3 +683,17 @@ main {
 .project-card:hover .image-overlay {
   opacity: 1;
 }
+
+/* ============================================
+   TAG BADGE HOVER EFFECT
+   ============================================ */
+
+.tag-badge {
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.tag-badge:hover {
+  background-color: rgba(92, 61, 46, 0.1);
+  color: #5C3D2E;
+  transform: translateY(-1px);
+}
