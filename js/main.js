@@ -416,6 +416,7 @@ const projectsGrid = document.getElementById('projects-grid');
 projects.forEach((project, i) => {
   const card = document.createElement('div');
   card.className = 'project-card glass rounded-2xl overflow-hidden border border-brown/10 hover:border-pink/30 group';
+  card.style.setProperty('--card-color', project.color);
 
   card.innerHTML = `
     <div class="card-shine"></div>
