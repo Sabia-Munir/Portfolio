@@ -352,6 +352,23 @@ const projects = [
       'Custom dark UI with illustrations',
     ],
   },
+  {
+    title: 'Laptop Point',
+    subtitle: 'Full-Stack E-Commerce Platform',
+    description: 'A full-stack e-commerce platform built solo, from database to storefront. Features role-based auth, product management, and an atomic checkout function preventing overselling on simultaneous orders.',
+    image: 'assets/projects/laptoppoint.png',
+    tags: ['HTML/CSS', 'JavaScript', 'Supabase', 'Postgres', 'Tailwind CSS'],
+    color: '#7C3AED',
+    github: 'https://github.com/Sabia-Munir/Laptop-Point',
+    features: [
+      'Role-based Auth (customer/admin)',
+      'Supabase Postgres with RLS policies',
+      'Atomic checkout preventing overselling',
+      'Product image storage & management',
+      'Price range filtering',
+      'Deploy-ready static site',
+    ],
+  },
 ];
 
 const projectsGrid = document.getElementById('projects-grid');
