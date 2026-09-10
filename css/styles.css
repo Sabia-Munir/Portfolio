@@ -698,3 +698,12 @@ main {
   color: #5C3D2E;
   transform: translateY(-1px);
 }
+
+/* ============================================
+   PROJECT CARD FOCUS RING
+   ============================================ */
+
+.project-card:focus-visible {
+  outline: 2px solid var(--card-color, #E8879C);
+  outline-offset: 3px;
+}
