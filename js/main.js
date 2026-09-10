@@ -309,6 +309,7 @@ const projects = [
     tags: ['Python', 'AI/ML', 'Pygame', 'Scikit-learn', 'NetworkX'],
     color: '#C4956A',
     github: 'https://github.com/Sabia-Munir/CityMind',
+    category: 'AI/ML',
     features: [
       'CSP + Backtracking for city layout',
       'Kruskal\'s MST for road networks',
@@ -326,6 +327,7 @@ const projects = [
     tags: ['React', 'Three.js', 'Tailwind CSS', 'Framer Motion'],
     color: '#E8A0BF',
     github: 'https://github.com/Sabia-Munir/Cafe-Prosa',
+    category: 'Web / 3D',
     features: [
       'Interactive 3D food scenes with Three.js',
       'Smooth page transitions and animations',
@@ -343,6 +345,7 @@ const projects = [
     tags: ['PHP', 'SQL Server', 'HTML/CSS', 'Database Design'],
     color: '#D4A574',
     github: 'https://github.com/Sabia-Munir/IVOR-Hospital-Management-System',
+    category: 'Full Stack',
     features: [
       'Live Dashboard with real-time stats',
       'Full CRUD for all hospital entities',
@@ -360,6 +363,7 @@ const projects = [
     tags: ['HTML/CSS', 'JavaScript', 'Supabase', 'Postgres', 'Tailwind CSS'],
     color: '#7C3AED',
     github: 'https://github.com/Sabia-Munir/Laptop-Point',
+    category: 'Full Stack',
     features: [
       'Role-based Auth (customer/admin)',
       'Supabase Postgres with RLS policies',
@@ -377,6 +381,7 @@ const projects = [
     tags: ['React 19', 'TypeScript', 'Electron', 'Java', 'JavaFX', 'SQL Server'],
     color: '#10B981',
     github: 'https://lnkd.in/dqeiK3J3',
+    category: 'Desktop App',
     features: [
       'Rich editor with genre presets',
       'Vector canvas with guide overlays',
@@ -394,6 +399,7 @@ const projects = [
     tags: ['C++', 'SDL2', 'Shared Memory', 'Signals', 'POSIX'],
     color: '#F59E0B',
     github: 'https://github.com/areebaxw/Chrono-Rift',
+    category: 'Systems / Game',
     features: [
       'Multi-process architecture (arbiter, hip, asp)',
       'Custom stamina-based turn scheduler',
@@ -427,7 +433,7 @@ projects.forEach((project, i) => {
     <div class="p-5">
       <div class="flex items-center gap-2 mb-2">
         <span class="w-1.5 h-1.5 rounded-full" style="background-color: ${project.color};"></span>
-        <span class="text-[10px] font-bold tracking-[0.2em] uppercase" style="color: ${project.color};">Project</span>
+        <span class="text-[10px] font-bold tracking-[0.2em] uppercase" style="color: ${project.color};">${project.category || 'Project'}</span>
       </div>
       <h3 class="text-xl font-black text-brown mb-1">${project.title}</h3>
       <p class="text-xs font-semibold mb-3" style="color: ${project.color};">${project.subtitle}</p>
