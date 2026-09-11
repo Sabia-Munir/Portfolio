@@ -468,28 +468,50 @@ projects.forEach((project, i) => {
 
 const experiences = [
   {
-    title: 'BS Computer Science',
-    org: 'FAST NUCES',
-    period: 'Class of 2028',
-    description: 'Pursuing BS in Computer Science with focus on software development, algorithms, and AI. Building a strong foundation in both theoretical and practical aspects of computing.',
-    tags: ['Algorithms', 'Data Structures', 'OOP', 'AI/ML'],
-    type: 'education',
+    title: 'Front-end Intern',
+    org: 'DormData',
+    period: 'Jun 2026 — Aug 2026',
+    location: 'Remote',
+    description: 'Completed a 2-month internship building responsive front-end interfaces. Awarded Certificate of Achievement for outstanding service as a Frontend Intern.',
+    tags: ['React', 'JavaScript', 'HTML/CSS', 'Responsive Design'],
+    type: 'internship',
+    color: '#7C3AED',
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>`,
+    certificate: 'assets/projects/dormdata-certificate.png',
+    certIssuer: 'Mohammad Haider Abbas, CEO — DormData',
   },
   {
-    title: 'UI/UX Design',
-    org: 'Self-Taught & Projects',
-    period: 'Ongoing',
-    description: 'Designing intuitive user interfaces and experiences for web and mobile applications. Strongest suit where thoughtful design meets clean, functional code.',
-    tags: ['Figma', 'User Research', 'Prototyping', 'Design Systems'],
-    type: 'skill',
+    title: 'Lab Demonstrator — Artificial Intelligence',
+    org: 'FAST-NUCES, Islamabad Campus',
+    period: 'Aug 2026 — Present',
+    location: 'On-site',
+    description: 'Guiding students through AI lab sessions, assisting with practical implementations of machine learning algorithms, and evaluating coursework.',
+    tags: ['AI/ML', 'Python', 'Teaching', 'Lab Supervision'],
+    type: 'academic',
+    color: '#10B981',
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>`,
   },
   {
-    title: 'Freelance Developer',
-    org: 'Open for Opportunities',
-    period: 'Available Now',
-    description: 'Ready to bring your ideas to life with modern web technologies. Specializing in React, Tailwind CSS, and creative web experiences.',
-    tags: ['React', 'Tailwind', '3D Web', 'Responsive'],
-    type: 'work',
+    title: 'Decor Vice Head',
+    org: 'FAST Outreach and Engagement Society',
+    period: 'Aug 2026 — Present',
+    location: 'FAST-NUCES, Islamabad',
+    description: 'Leading decor planning and execution for university events. Coordinating team efforts for large-scale campus activities.',
+    tags: ['Leadership', 'Event Planning', 'Team Management'],
+    type: 'leadership',
+    color: '#E8879C',
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>`,
+  },
+  {
+    title: 'Freelance Web Developer',
+    org: 'Fiverr',
+    period: 'Jun 2026 — Present',
+    location: 'Remote',
+    description: 'Full-stack web developer offering end-to-end website builds — from database architecture and backend logic to polished, interactive frontends. Specializing in React, Supabase/Postgres, and animation-driven UI.',
+    tags: ['React', 'Supabase', 'Three.js', 'GSAP', 'E-Commerce'],
+    type: 'freelance',
+    color: '#F59E0B',
+    icon: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>`,
   },
 ];
 
@@ -500,26 +522,38 @@ experiences.forEach((exp, i) => {
   item.className = `timeline-item relative mb-12 ml-12 md:ml-0 ${i % 2 === 0 ? 'md:flex md:justify-start' : 'md:flex md:justify-end'}`;
   item.style.transitionDelay = `${i * 200}ms`;
 
-  const typeColors = {
-    education: 'bg-blue-500',
-    skill: 'bg-pink',
-    work: 'bg-green-500',
-  };
+  const certBadge = exp.certificate ? `
+    <button class="cert-toggle mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-bold tracking-wide border transition-all duration-300 hover:scale-105" style="color: ${exp.color}; border-color: ${exp.color}30; background: ${exp.color}10;" onclick="this.nextElementSibling.classList.toggle('hidden'); this.textContent = this.textContent.includes('Show') ? 'Hide Certificate' : 'Show Certificate';">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      Show Certificate
+    </button>
+    <div class="cert-proof hidden mt-3 rounded-xl overflow-hidden border border-brown/10 shadow-lg">
+      <img src="${exp.certificate}" alt="Certificate — ${exp.org}" class="w-full" loading="lazy">
+      <div class="px-4 py-2 bg-brown/5 text-[11px] text-brown-muted text-center font-medium">${exp.certIssuer}</div>
+    </div>
+  ` : '';
 
   item.innerHTML = `
-    <div class="timeline-dot ${typeColors[exp.type]}"></div>
+    <div class="timeline-dot" style="background-color: ${exp.color};"></div>
     <div class="md:w-1/2 ${i % 2 === 0 ? 'md:pr-12' : 'md:pl-12'}">
-      <div class="timeline-content glass rounded-2xl p-6 border border-brown/10 hover:border-pink/30">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="w-2 h-2 rounded-full ${typeColors[exp.type]}"></span>
-          <span class="text-xs font-semibold tracking-wider uppercase text-brown-muted">${exp.type}</span>
+      <div class="timeline-content glass rounded-2xl p-6 border border-brown/10 hover:border-pink/30 group" style="--card-accent: ${exp.color};">
+        <div class="flex items-center gap-3 mb-3">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background: ${exp.color}15; color: ${exp.color};">
+            ${exp.icon}
+          </div>
+          <div>
+            <span class="text-[10px] font-bold tracking-[0.2em] uppercase" style="color: ${exp.color};">${exp.type}</span>
+            <p class="text-[11px] text-brown-muted">${exp.location}</p>
+          </div>
         </div>
-        <h3 class="font-bold text-brown text-lg mb-1">${exp.title}</h3>
-        <p class="text-xs text-brown-muted mb-3">${exp.org} • ${exp.period}</p>
+        <h3 class="font-black text-brown text-lg mb-1">${exp.title}</h3>
+        <p class="text-xs font-semibold mb-1" style="color: ${exp.color};">${exp.org}</p>
+        <p class="text-[11px] text-brown-muted mb-3 font-mono">${exp.period}</p>
         <p class="text-sm text-brown-muted leading-relaxed mb-4">${exp.description}</p>
-        <div class="flex flex-wrap gap-2">
-          ${exp.tags.map(tag => `<span class="px-2 py-1 rounded-md text-xs bg-pink/10 text-pink border border-pink/20">${tag}</span>`).join('')}
+        <div class="flex flex-wrap gap-1.5 mb-2">
+          ${exp.tags.map(tag => `<span class="px-2 py-0.5 rounded-md text-[10px] font-mono border border-brown/10 text-brown-muted bg-brown/5">${tag}</span>`).join('')}
         </div>
+        ${certBadge}
       </div>
     </div>
   `;
