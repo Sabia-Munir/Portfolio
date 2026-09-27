@@ -266,13 +266,13 @@ skillCategories.forEach((cat, ci) => {
       <h3 class="font-bold text-brown text-lg">${cat.title}</h3>
     </div>
     ${cat.skills.map((skill, si) => `
-      <div class="mb-4">
+      <div class="skill-tooltip mb-4">
         <div class="flex justify-between items-center mb-1.5">
           <span class="text-sm text-brown-light font-medium">${skill.name}</span>
           <span class="text-xs text-brown-muted font-mono">${skill.level}%</span>
         </div>
         <div class="h-2 bg-brown/5 rounded-full overflow-hidden">
-          <div class="skill-bar-fill h-full rounded-full" style="background: linear-gradient(90deg, ${cat.color}, ${cat.color}88);" data-width="${skill.level}"></div>
+          <div class="skill-bar-fill h-full rounded-full" style="background: linear-gradient(90deg, ${cat.color}, ${cat.color}88);" data-width="${skill.level}" title="${skill.name}: ${skill.level}%" aria-label="${skill.name} skill level ${skill.level}%"></div>
         </div>
       </div>
     `).join('')}
@@ -295,6 +295,57 @@ const skillsObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.2 });
 
 skillsObserver.observe(skillsGrid);
+
+// ============================================
+// PROJECT FILTER DATA
+// ============================================
+
+const projectFilters = document.getElementById('project-filters');
+const filterBtns = projectFilters ? projectFilters.querySelectorAll('.project-filter-btn') : [];
+
+// Set initial active state
+if (filterBtns.length > 0) {
+  filterBtns[0].classList.add('bg-brown/5', 'text-brown');
+}
+
+// Filter projects
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // Update active state
+    filterBtns.forEach(b => {
+      b.classList.remove('bg-brown/5', 'text-brown');
+      b.classList.add('border-brown/20', 'text-brown-muted');
+    });
+    btn.classList.remove('border-brown/20', 'text-brown-muted');
+    btn.classList.add('bg-brown/5', 'text-brown');
+
+    const filter = btn.dataset.filter;
+
+    // Filter and show projects
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+      const category = card.dataset.category;
+      if (filter === 'all' || category === filter) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Initialize isotope-like masonry for filtered projects (simple version)
+function refreshProjectGrid() {
+  const projectsGrid = document.getElementById('projects-grid');
+  if (!projectsGrid) return;
+
+  // Re-layout is handled by Tailwind utilities
+  // but we can force a reflow for proper positioning
+  projectsGrid.style.opacity = '0';
+  setTimeout(() => {
+    projectsGrid.style.opacity = '1';
+  }, 100);
+}
 
 // ============================================
 // PROJECTS DATA & RENDER (CASE STUDY STYLE)
@@ -420,6 +471,7 @@ projects.forEach((project, i) => {
   card.setAttribute('tabindex', '0');
   card.setAttribute('role', 'article');
   card.setAttribute('aria-label', `${project.title} - ${project.subtitle}`);
+  card.dataset.category = project.category || 'Full Stack';
 
   card.innerHTML = `
     <div class="card-shine"></div>
@@ -461,6 +513,9 @@ projects.forEach((project, i) => {
 
   projectsGrid.appendChild(card);
 });
+
+// Initialize filter btn active state and reflow
+setTimeout(refreshProjectGrid, 300);
 
 // ============================================
 // TIMELINE DATA & RENDER
@@ -523,13 +578,15 @@ experiences.forEach((exp, i) => {
   item.style.transitionDelay = `${i * 200}ms`;
 
   const certBadge = exp.certificate ? `
-    <button class="cert-toggle mt-3 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-bold tracking-wide border transition-all duration-300 hover:scale-105" style="color: ${exp.color}; border-color: ${exp.color}30; background: ${exp.color}10;" onclick="this.nextElementSibling.classList.toggle('hidden'); this.textContent = this.textContent.includes('Show') ? 'Hide Certificate' : 'Show Certificate';">
-      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-      Show Certificate
-    </button>
-    <div class="cert-proof hidden mt-3 rounded-xl overflow-hidden border border-brown/10 shadow-lg">
-      <img src="${exp.certificate}" alt="Certificate — ${exp.org}" class="w-full" loading="lazy">
-      <div class="px-4 py-2 bg-brown/5 text-[11px] text-brown-muted text-center font-medium">${exp.certIssuer}</div>
+    <div class="cert-toggle-container mt-3">
+      <button class="cert-toggle inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-bold tracking-wide border transition-all duration-300 hover:scale-105" style="color: ${exp.color}; border-color: ${exp.color}30; background: ${exp.color}10;" aria-label="View certificate" onclick="this.parentElement.querySelector('.cert-proof').classList.toggle('hidden'); this.textContent = this.textContent.includes('Hide') ? 'Hide Certificate' : 'Show Certificate';">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Show Certificate
+      </button>
+      <div class="cert-proof hidden mt-2 rounded-xl overflow-hidden border border-brown/10 shadow-lg">
+        <img src="${exp.certificate}" alt="Certificate — ${exp.org}" class="w-full" loading="lazy">
+        <div class="px-4 py-2 bg-brown/5 text-[11px] text-brown-muted text-center font-medium">${exp.certIssuer}</div>
+      </div>
     </div>
   ` : '';
 
@@ -756,25 +813,39 @@ document.querySelectorAll('.project-card').forEach(card => {
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    const rotateX = (y - centerY) / 20;
-    const rotateY = (centerX - x) / 20;
+    const rotateX = (y - centerY) / 15;
+    const rotateY = (centerX - x) / 15;
 
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-    card.style.transition = 'transform 0.1s ease';
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px) scale3d(1.03, 1.03, 1.03)`;
+    card.style.transition = 'transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
 
     // Shine effect
     const shine = card.querySelector('.card-shine');
     if (shine) {
-      shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(232,135,156,0.15) 0%, transparent 60%)`;
+      shine.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(232,135,156,0.2) 0%, transparent 50%)`;
+    }
+
+    // Image zoom
+    const img = card.querySelector('img');
+    if (img) {
+      img.style.transform = `scale(1.05)`;
     }
   });
 
   card.addEventListener('mouseleave', () => {
-    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-    card.style.transition = 'transform 0.5s ease';
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale3d(1, 1, 1)';
+    card.style.transition = 'transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+
+    // Shine effect reset
     const shine = card.querySelector('.card-shine');
     if (shine) {
       shine.style.background = 'transparent';
+    }
+
+    // Image zoom reset
+    const img = card.querySelector('img');
+    if (img) {
+      img.style.transform = 'scale(1)';
     }
   });
 });
